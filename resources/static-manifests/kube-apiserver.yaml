@@ -39,6 +39,11 @@ spec:
     - --service-cluster-ip-range=${service_cidr}
     - --tls-cert-file=/etc/kubernetes/secrets/apiserver.crt
     - --tls-private-key-file=/etc/kubernetes/secrets/apiserver.key
+    - --oidc-issuer-url=https://dtkt-int.qa.navinet.local/auth/idp/k8sIdp
+    - --oidc-client-id=kubernetes
+    - --oidc-username-claim=sub
+    - --oidc-groups-claim=groups
+    - --oidc-ca-file=/etc/kubernetes/pki/ou-ca.pem
     env:
     - name: POD_IP
       valueFrom:
